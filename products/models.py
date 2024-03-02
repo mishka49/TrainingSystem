@@ -14,10 +14,10 @@ class User(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
-    author = models.OneToOneField('User', on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
     min_people_in_group = models.IntegerField()
     max_people_in_group = models.IntegerField()
-    start_date = models.DateTimeField(auto_now_add=True)
+    start_date = models.DateTimeField()
     coast = models.FloatField(null=True)
 
     class Meta:
